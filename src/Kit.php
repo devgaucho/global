@@ -52,6 +52,18 @@ class Kit{
 			return false;
 		}
 	}	
+	function method($raw=false){
+		$method=$_SERVER['REQUEST_METHOD'];
+		if($raw){
+			return $method;
+		}else{
+			if($method=='POST'){
+				return 'POST';
+			}else{
+				return 'GET';
+			}
+		}
+	}	
 	function json($data,$print=true){
 		$str=json_encode($data,JSON_PRETTY_PRINT);
 		if($print){
@@ -61,6 +73,10 @@ class Kit{
 			return $str;
 		}
 	}
+	function redirect($url){
+		header('Location: '.$url);
+		die();
+	}	
 	function root(){
 		return realpath(__DIR__.'/../../../../');
 	}
@@ -101,6 +117,16 @@ class Kit{
 			ini_set('display_startup_errors', 0);
 			error_reporting(0);
 		}
+	}
+	function random($tamanho=11){
+		$str='0123456789';
+		$str .= 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
+		$randomStr = '';
+		$len=mb_strlen($str);
+		for ($i = 0; $i < $tamanho; $i++) {
+			$randomStr .= $str[rand(0,$len-1)];
+		}
+		return $randomStr;
 	}
 	function view($name,$data=[],$print=true){
 		$filename=$this->root().'/src/view/'.$_ENV['THEME'].'/';
