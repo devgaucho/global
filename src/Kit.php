@@ -12,7 +12,7 @@ class Kit{
 			if(isset($_ENV['THEME'])){
 				$url='src/view/'.$_ENV['THEME'].'/'.$url;
 			}
-			$filename=root().'/'.$url;
+			$filename=$this->root().'/'.$url;
 			$path_parts=pathinfo($url);
 			$ext=$path_parts['extension'];
 			if(file_exists($filename)){
