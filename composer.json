@@ -1,5 +1,5 @@
 {
-    "name": "gaucho/global",
+    "name": "gaucho/kit",
     "description": "Funções básicas",
     "type": "library",
     "license": "MIT",

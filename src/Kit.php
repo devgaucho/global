@@ -1,7 +1,7 @@
 <?php
 namespace gaucho;
 
-class Global{
+class Kit{
 	function asset($urls,$print=true,$autoIndent=true){
 		if(is_string($urls)){
 			$arr[]=$urls;
