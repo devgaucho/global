@@ -45,6 +45,19 @@ class Kit{
 	function code($httpCode){
 		http_response_code($httpCode);
 	}
+	function controller($name){
+		$root=$this->root();
+		$className=$name.'Controller';
+		$filename=$root.'/src/controller/'.$className.'.php';
+		if(file_exists($filename)){
+			require $filename;
+			$ns='src\controller\\'.$className;
+			$obj=new $ns();
+			return $obj;
+		}else{
+			die('controller <b>'.$filename.'</b> not found');
+		}
+	}
 	function isCli(){
 		if (php_sapi_name() == "cli") {
 			return true;
@@ -62,6 +75,19 @@ class Kit{
 			}else{
 				return 'GET';
 			}
+		}
+	}
+	function model($name){
+		$root=$this->root();
+		$className=$name.'Model';
+		$filename=$root.'/src/model/'.$className.'.php';
+		if(file_exists($filename)){
+			require $filename;
+			$ns='src\model\\'.$className;
+			$obj=new $ns();
+			return $obj;
+		}else{
+			die('model <b>'.$filename.'</b> not found');
 		}
 	}	
 	function json($data,$print=true){
