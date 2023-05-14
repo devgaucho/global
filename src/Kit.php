@@ -66,7 +66,7 @@ class Kit{
 		}
 	}	
 	function markdown($str,$html=false){
-		$Parsedown = new Parsedown();
+		$Parsedown = new \Parsedown();
 		$Parsedown->setMarkupEscaped($html);
 		return $Parsedown->text($str);
 	}	
