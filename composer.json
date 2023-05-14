@@ -14,5 +14,7 @@
             "email": "119246170+devgaucho@users.noreply.github.com"
         }
     ],
-    "require": {}
+    "require": {
+        "erusev/parsedown": "^1.7"
+    }
 }

@@ -65,6 +65,11 @@ class Kit{
 			return false;
 		}
 	}	
+	function markdown($str,$html=false){
+		$Parsedown = new Parsedown();
+		$Parsedown->setMarkupEscaped($html);
+		return $Parsedown->text($str);
+	}	
 	function method($raw=false){
 		$method=$_SERVER['REQUEST_METHOD'];
 		if($raw){
