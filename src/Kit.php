@@ -76,6 +76,10 @@ class Kit{
 		}
 		return $this->db;		
 	}
+	function dom($html){
+		require_once __DIR__.'/simple_html_dom.php';
+		return str_get_html($html);
+	}
 	function isCli(){
 		if (php_sapi_name() == "cli") {
 			return true;
