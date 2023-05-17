@@ -1,7 +1,10 @@
 <?php
 namespace gaucho;
 
+use Medoo\Medoo;
+
 class Kit{
+	var $db;
 	function asset($urls,$print=true,$autoIndent=true){
 		if(is_string($urls)){
 			$arr[]=$urls;
@@ -57,6 +60,21 @@ class Kit{
 		}else{
 			die('controller <b>'.$filename.'</b> not found');
 		}
+	}
+	function db(){
+		if(!is_object($this->db)){
+			$this->db=new Medoo([
+				'type' => 'mysql',
+				'host' => $_ENV['DB_HOST'],
+				'database' => $_ENV['DB_NAME'],
+				'username' => $_ENV['DB_USER'],
+				'password' => $_ENV['DB_PASSWORD'],
+				'charset' => 'utf8mb4',
+				'collation' => 'utf8mb4_general_ci',
+				'port' => 3306
+			]);
+		}
+		return $this->db;		
 	}
 	function isCli(){
 		if (php_sapi_name() == "cli") {
