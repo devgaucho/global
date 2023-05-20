@@ -207,6 +207,20 @@ class Kit{
 	function startTime(){
 		return microtime(1);
 	}
+	function updateBatch($table,$data){
+		$db=$this->db();
+		$sql='';
+		foreach ($data as $value) {
+			$where=[
+				'id'=>$value['id']
+			];
+			ob_start();
+			$db->debug()->update($table,$value,$where);
+			$str=ob_get_clean();
+			$sql.=$str.';'.PHP_EOL;
+		}
+		return $db()->query($sql)->fetchAll()
+	}
 	function random($tamanho=11){
 		$str='0123456789';
 		$str .= 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_-';
