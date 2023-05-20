@@ -218,7 +218,7 @@ class Kit{
 			$str=ob_get_clean();
 			$sql.=$str.';'.PHP_EOL;
 		}
-		$this->db()->query($sql)->fetchAll();
+		$this->db()->query($sql);
 		return true;
 	}
 	function random($tamanho=11){
