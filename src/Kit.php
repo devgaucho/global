@@ -65,7 +65,7 @@ class Kit{
 		$i=1;
 		$offset=0;
 		while($i<=$limit){
-			$batch[]=array_slice($arr,$offset,$length,true);		
+			$batch[$i]=array_slice($arr,$offset,$length,true);		
 			$offset=$offset+$length;		
 			$i++;
 		}
