@@ -45,6 +45,32 @@ class Kit{
 			return $out;
 		}
 	}
+	function batch($arr,$length){
+		$offset=0;
+		$pages=[];
+		$count=count($arr);
+		if($count<=$length){
+			$limit=1;
+		}else{
+			$times=bcdiv($count,$length);
+			$mod=bcmod($count,$length);
+			if($mod>=1){
+				$plus=1;
+			}else{
+				$plus=0;
+			}
+			$limit=$times+$plus;
+		}
+		$batch=[];
+		$i=1;
+		$offset=0;
+		while($i<=$limit){
+			$batch[]=array_slice($arr,$offset,$length,true);		
+			$offset=$offset+$length;		
+			$i++;
+		}
+		return $batch;
+	}
 	function code($httpCode){
 		http_response_code($httpCode);
 	}
@@ -79,6 +105,13 @@ class Kit{
 	function dom($html){
 		require_once __DIR__.'/simple_html_dom.php';
 		return str_get_html($html);
+	}
+	function endTime($start_str){
+		$end_str=microtime(1);
+		if(!function_exists('bcdiv')){
+			die("composer require phpseclib/bcmath_compat");
+		}
+	    return bcsub($end_str,$start_str,3);//tempo em segundos
 	}
 	function isCli(){
 		if (php_sapi_name() == "cli") {
@@ -170,6 +203,9 @@ class Kit{
 			ini_set('display_startup_errors', 0);
 			error_reporting(0);
 		}
+	}
+	function startTime(){
+		return microtime(1);
 	}
 	function random($tamanho=11){
 		$str='0123456789';
