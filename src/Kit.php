@@ -219,7 +219,7 @@ class Kit{
 			$str=ob_get_clean();
 			$sql.=$str.';'.PHP_EOL;
 		}
-		return $db()->query($sql)->fetchAll()
+		return $db->query($sql)->fetchAll()
 	}
 	function random($tamanho=11){
 		$str='0123456789';
