@@ -132,7 +132,7 @@ class Kit{
 		];
 	}	
 	function guzzle(){
-		return new GuzzleHttp\Client();
+		return new \GuzzleHttp\Client();
 	}
 	function isCli(){
 		if (php_sapi_name() == "cli") {
