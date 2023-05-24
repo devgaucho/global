@@ -123,6 +123,14 @@ class Kit{
 		}
 	    return bcsub($end_str,$start_str,3);//tempo em segundos
 	}
+	function getHead($url){
+		$client=$this->guzzle();
+		$response=$client->request('HEAD',$url);
+		return [
+			'code'=>$response->getStatusCode(),
+			'header'=>$response->getHeaders()
+		];
+	}	
 	function guzzle(){
 		return new GuzzleHttp\Client();
 	}
