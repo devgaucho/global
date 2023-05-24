@@ -1,6 +1,7 @@
 <?php
 namespace gaucho;
 
+use GuzzleHttp\Client;
 use Medoo\Medoo;
 
 class Kit{
@@ -106,12 +107,24 @@ class Kit{
 		require_once __DIR__.'/simple_html_dom.php';
 		return str_get_html($html);
 	}
+	function download($url){
+		$client=$this->guzzle();
+		$response=$client->request('GET',$url);
+		return [
+			'code'=>$response->getStatusCode(),
+			'header'=>$response->getHeaders(),
+			'body'=>$response->getBody()
+		];
+	}
 	function endTime($start_str){
 		$end_str=microtime(1);
 		if(!function_exists('bcdiv')){
 			die("composer require phpseclib/bcmath_compat");
 		}
 	    return bcsub($end_str,$start_str,3);//tempo em segundos
+	}
+	function guzzle(){
+		return new GuzzleHttp\Client();
 	}
 	function isCli(){
 		if (php_sapi_name() == "cli") {

@@ -16,6 +16,7 @@
     ],
     "require": {
         "erusev/parsedown": "^1.7",
-        "catfan/medoo": "^2.1"
+        "catfan/medoo": "^2.1",
+        "guzzlehttp/guzzle": "^7.7"
     }
 }
