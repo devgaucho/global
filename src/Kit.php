@@ -120,6 +120,15 @@ class Kit{
 			return false;
 		}
 	}	
+	function json($data,$print=true){
+		$str=json_encode($data,JSON_PRETTY_PRINT);
+		if($print){
+			header('Content-Type: application/json');
+			die($str);
+		}else{
+			return $str;
+		}
+	}
 	function markdown($str,$html=false){
 		$Parsedown = new \Parsedown();
 		$Parsedown->setMarkupEscaped($html);
@@ -150,13 +159,12 @@ class Kit{
 			die('model <b>'.$filename.'</b> not found');
 		}
 	}	
-	function json($data,$print=true){
-		$str=json_encode($data,JSON_PRETTY_PRINT);
-		if($print){
-			header('Content-Type: application/json');
-			die($str);
+	function plugin($name){
+		$filename=$this->root().'/src/plugin/'.$name.'.php';
+		if(file_exists($filename)){
+			return require $filename;
 		}else{
-			return $str;
+			die('plugin <b>'.$filename.'</b> not found');
 		}
 	}
 	function redirect($url){
