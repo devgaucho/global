@@ -155,6 +155,20 @@ class Kit{
 		$Parsedown->setMarkupEscaped($html);
 		return $Parsedown->text($str);
 	}	
+	function massiveUpdate($table,$data){
+		$sql='';
+		foreach ($data as $value) {
+			$where=[
+				'id'=>$value['id']
+			];
+			ob_start();
+			$this->db()->debug()->update($table,$value,$where);
+			$str=ob_get_clean();
+			$sql.=$str.';'.PHP_EOL;
+		}
+		$this->db()->query($sql);
+		return true;
+	}
 	function method($raw=false){
 		$method=$_SERVER['REQUEST_METHOD'];
 		if($raw){
@@ -235,20 +249,6 @@ class Kit{
 	}
 	function startTime(){
 		return microtime(1);
-	}
-	function updateBatch($table,$data){
-		$sql='';
-		foreach ($data as $value) {
-			$where=[
-				'id'=>$value['id']
-			];
-			ob_start();
-			$this->db()->debug()->update($table,$value,$where);
-			$str=ob_get_clean();
-			$sql.=$str.';'.PHP_EOL;
-		}
-		$this->db()->query($sql);
-		return true;
 	}
 	function random($tamanho=11){
 		$str='0123456789';
