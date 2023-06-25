@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3dd5aad7f931c3bd76aac4a89a5189f5",
+    "content-hash": "4467eac099d242638d7388689006b86a",
     "packages": [
         {
             "name": "catfan/medoo",
@@ -131,6 +131,80 @@
                 "source": "https://github.com/erusev/parsedown/tree/1.7.x"
             },
             "time": "2019-12-30T22:54:17+00:00"
+        },
+        {
+            "name": "gaucho/env",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/devgaucho/env.git",
+                "reference": "36421261c94dc95bc99cf9073e150ea9733bf9b9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/devgaucho/env/zipball/36421261c94dc95bc99cf9073e150ea9733bf9b9",
+                "reference": "36421261c94dc95bc99cf9073e150ea9733bf9b9",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "gaucho\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "gaucho.dev",
+                    "email": "119246170+devgaucho@users.noreply.github.com"
+                }
+            ],
+            "description": "Registers environment variables from a .env file (only 40 lines of code!)",
+            "support": {
+                "issues": "https://github.com/devgaucho/env/issues",
+                "source": "https://github.com/devgaucho/env/tree/v0.2.0"
+            },
+            "time": "2023-01-29T20:29:07+00:00"
+        },
+        {
+            "name": "gaucho/mig",
+            "version": "v0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/devgaucho/mig.git",
+                "reference": "d3602308b6ca744f20dc28848aef45aed7d57e41"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/devgaucho/mig/zipball/d3602308b6ca744f20dc28848aef45aed7d57e41",
+                "reference": "d3602308b6ca744f20dc28848aef45aed7d57e41",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "gaucho\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "gaucho.dev",
+                    "email": "119246170+devgaucho@users.noreply.github.com"
+                }
+            ],
+            "description": "Sistema básico de migrations",
+            "support": {
+                "issues": "https://github.com/devgaucho/mig/issues",
+                "source": "https://github.com/devgaucho/mig/tree/v0.2.0"
+            },
+            "time": "2023-05-23T20:03:55+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",

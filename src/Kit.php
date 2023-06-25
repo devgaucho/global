@@ -3,6 +3,7 @@ namespace gaucho;
 
 use GuzzleHttp\Client;
 use Medoo\Medoo;
+use gaucho\mig;
 
 class Kit{
 	var $db;
@@ -180,6 +181,15 @@ class Kit{
 				return 'GET';
 			}
 		}
+	}
+	function mig($dbType='mysql',$tableDir=null){
+		$db=$this->db();
+		$conn=$db->pdo;
+		if(is_null($tableDir)){
+			$tableDir=$this->root().'/table';
+		}
+		$mig=new Mig($conn, $tableDir, $dbType);
+		return $mig->mig();
 	}
 	function model($name){
 		$root=$this->root();
