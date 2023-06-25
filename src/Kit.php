@@ -3,7 +3,7 @@ namespace gaucho;
 
 use GuzzleHttp\Client;
 use Medoo\Medoo;
-use gaucho\mig;
+use gaucho\Mig;
 
 class Kit{
 	var $db;
