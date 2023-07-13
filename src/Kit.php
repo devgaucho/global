@@ -110,12 +110,16 @@ class Kit{
 	}
 	function download($url){
 		$client=$this->guzzle();
-		$response=$client->request('GET',$url);
-		return [
-			'code'=>$response->getStatusCode(),
-			'header'=>$response->getHeaders(),
-			'body'=>$response->getBody()
-		];
+		try{
+			$response=$client->request('GET',$url);
+			return [
+				'code'=>$response->getStatusCode(),
+				'header'=>$response->getHeaders(),
+				'body'=>$response->getBody()
+			];
+		}catch(Exception $e){
+			return false;
+		}
 	}
 	function endTime($start_str){
 		$end_str=microtime(1);
