@@ -114,7 +114,7 @@ class Kit{
 		return [
 			'code'=>$response->getStatusCode(),
 			'header'=>$response->getHeaders(),
-			'body'=>$response->getBody()->getContents();
+			'body'=>$response->getBody()->getContents()
 		];
 	}
 	function endTime($start_str){
