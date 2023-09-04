@@ -113,9 +113,11 @@ class Kit{
 		$client=$this->guzzle();
 		try{
 			$response=$client->request('GET',$url);
-			'code'=>$response->getStatusCode(),
-			'header'=>$response->getHeaders(),
-			'body'=>$response->getBody()->getContents()
+			return [
+				'code'=>$response->getStatusCode(),
+				'header'=>$response->getHeaders(),
+				'body'=>$response->getBody()->getContents()
+			];
 		}catch(RequestException $e){
 			return false;
 		}
