@@ -19,6 +19,8 @@
         "catfan/medoo": "^2.1",
         "guzzlehttp/guzzle": "^7.7",
         "gaucho/env": "^0.2.0",
-        "gaucho/mig": "^0.2.0"
+        "gaucho/mig": "^0.2.0",
+        "symfony/polyfill-mbstring": "^1.28",
+        "phpseclib/bcmath_compat": "^2.0"
     }
 }
